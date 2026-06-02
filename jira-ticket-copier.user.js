@@ -4,7 +4,7 @@
 // @version     0.8c
 // @author      code@bastianbaumeister.de
 //
-// @updateURL   https://raw.githubusercontent.com/ciis0/jira-ticket-copier/refs/heads/main/context-menu.js
+// @updateURL   https://raw.githubusercontent.com/ciis0/jira-ticket-copier/refs/heads/main/jira-ticket-copier.user.js
 // @namespace   https://github.com/cherub-i/jira-ticket-copier
 // @icon        https://www.google.com/s2/favicons?domain=jira.atlassian.com
 //
