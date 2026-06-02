@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name        Jira Ticket Copier
 // @description Use a right-click context menu to copy the Ticket-Key ("Id") and Ticket-Summary ("Title") either as a link or as text only for any ticket that appears on a JIRA page.
-// @version     0.7
+// @version     0.8c
 // @author      code@bastianbaumeister.de
 //
-// @updateURL   https://raw.githubusercontent.com/cherub-i/jira-ticket-copier/main/jira-ticket-copier.user.js
+// @updateURL   https://raw.githubusercontent.com/ciis0/jira-ticket-copier/refs/heads/main/context-menu.js
 // @namespace   https://github.com/cherub-i/jira-ticket-copier
 // @icon        https://www.google.com/s2/favicons?domain=jira.atlassian.com
 //
@@ -12,7 +12,7 @@
 // @match       https://jira./*
 //
 // @grant       none
-// @require     https://raw.githubusercontent.com/cherub-i/jira-ticket-copier/main/context-menu.js
+// @require     https://raw.githubusercontent.com/ciis0/jira-ticket-copier/refs/heads/main/context-menu.js
 // ==/UserScript==
 
 (function() {
