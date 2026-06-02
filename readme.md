@@ -3,7 +3,7 @@
 ## Installation
 
 1. [Install Tampermonkey](https://www.tampermonkey.net/)
-2. open the JIRA Ticket Copier script file [`jira-ticket-copier.user.js`](https://github.com/cherub-i/jira-ticket-copier/raw/main/jira-ticket-copier.user.js)
+2. open the JIRA Ticket Copier script file [`jira-ticket-copier.user.js`](https://github.com/ciis0/jira-ticket-copier/raw/refs/heads/main/jira-ticket-copier.user.js)
 
 ### Updates
 If you want to, you can enable Tampermonkey to look for updates for this script:
