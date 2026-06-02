@@ -38,7 +38,7 @@
 
     // textual representation
     let ticketAsText = function(key, summary) { return key + ' ' + summary; };
-    
+
     // link representation
     let ticketAsLink = function(key, summary, url) { return '<a href="' + url + '">' + key + ' ' + summary + '</a>'; };
     //
@@ -54,7 +54,7 @@
         get link() {
             return ticketAsLink(this.issueKey, this.issueSummary, this.issueUrl);
         }
-        
+
         get text() {
             return ticketAsText(this.issueKey, this.issueSummary);
         }
@@ -67,7 +67,7 @@
                 'id':                   element => element.innerText,
                 'issueURL':             element => element.href,
                 'issueKey':             element => element.innerText,
-                'issueSummary':         element => element.parentNode.parentNode.parentNode.parentNode.childNodes[1].innerText,
+                'issueSummary':         element => element.parentNode.parentNode.parentNode.parentNode/*.childNodes[1]*/.querySelector("#summary-val").innerText,
                 'menuParentElement':    element => element.parentNode,
                 'menuBeforeElement':    element => element.nextSibling,
             },
@@ -165,7 +165,7 @@
             },
         };
         // TODO: 'issue-board/epic-pane' // e.g. https://JIRA_SERVER/secure/RapidBoard.jspa?rapidView=6294&view=detail&selectedIssue=TICKET-484&quickFilter=30822
-        
+
 
         constructor(rootElement, ticketData) {
             this.rootElement = rootElement;
@@ -202,41 +202,41 @@
             }
         }
     }
-    
+
     class ActionsMenu {
         static class = 'actions-menu';
         static idAttribute = 'data-am-key';
-        
+
         constructor(id) {
             this.actionsMenu = document.createElement('button');
-            
+
             this.actionsMenu.style.border = 'none';
-            this.actionsMenu.style.marginLeft = '.3rem'; 
+            this.actionsMenu.style.marginLeft = '.3rem';
             this.actionsMenu.style.height = '13px';
             this.actionsMenu.style.width = '13px';
             this.actionsMenu.style.borderRadius = '50%';
             this.actionsMenu.style.backgroundColor = 'magenta'; // oder gelb? #FFE500
             this.actionsMenu.setAttribute(ActionsMenu.idAttribute, id);
-            
+
             this.actionsMenu.className = ActionsMenu.class
         }
-        
+
         get element() {
             return this.actionsMenu
         }
-        
+
         attach(parentElement, beforeElement) {
             parentElement.insertBefore(this.element, beforeElement);
         }
-        
+
         static initMenus(items) {
             this.menu = new ContextMenu('.' + ActionsMenu.class, items);
         }
     }
-    
+
     function copyToClip(str) {
         // https://stackoverflow.com/questions/23934656/javascript-copy-rich-text-contents-to-clipboard
-        
+
         function listener(e) {
             e.clipboardData.setData('text/html', str);
             e.clipboardData.setData('text/plain', str);
@@ -245,7 +245,7 @@
         document.addEventListener('copy', listener);
         document.execCommand('copy');
         document.removeEventListener('copy', listener);
-        
+
         if (printConsoleInfo) {
             console.log(consoleLogPrefix + 'INFO | copied to clipboard: ' + str);
         }
@@ -271,11 +271,11 @@
             console.log(consoleLogPrefix + 'ERROR | unknown exception: ' + e);
         }
     }
-    
+
     let consoleLogPrefix = 'JIRA Ticket Copier | ';
     let ticketData = {};
     let ticketGatherer = new TicketGatherer(document, ticketData);
-    
+
     let menuInitialized = false;
     // continuously scan for new links
     setInterval(worker, rescanIntervalSecs*1000);
